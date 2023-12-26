@@ -13,8 +13,12 @@
   "theme": "default",
   "gravatar": false,
   "scripts": {
-    "start": "index.js",    
+    "start": "index.js",
+    "release": "standard-version -- --prerelease alpha",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "standard-version": "^9.5.0"
+  }
 }
