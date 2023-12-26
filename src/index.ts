@@ -1,10 +1,15 @@
 import express from 'express';
+import dotenv from 'dotenv';
+dotenv.config();
+
 import http from 'http';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
 import compression from 'compression';
+import Logger from './lib/logger/logger';
+import morganMiddleware from './config/morganMiddleware';
 
 const app = express();
 
@@ -16,13 +21,13 @@ app.use(cors({
     credentials: true
 }));                
 
+app.use(morganMiddleware);
 
-app.get('/test', (req: express.Request, res: express.Response)=>{
-    console.log('hello world');
-    
-    res.send('Hello World');
-    });
+app.get("/logger", (_, res) => {
+    Logger.info("This is a info log");
+    res.send("Hello world");
+  });
 
 
 const server = http.createServer(app);
-server.listen(8080, () => console.log(`app listening on port http://localhost:8080`));
+server.listen(process.env.PORT, () => console.log(`app listening on port ${process.env.PORT}`));
