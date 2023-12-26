@@ -1,0 +1,20 @@
+{
+  "name": "estellar-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "https://github.com/devgsb925/estellar-api.git",
+  "author": "Gonzalo Bolisay <gsbolisay925@gmail.com",
+  "copyright": "Gonzalo Bolisay",
+  "url": "https://estellar.ph",
+  "email": "gsbolisay925@gmail.com",
+  "format": "text",
+  "license": "mit",
+  "theme": "default",
+  "gravatar": false,
+  "scripts": {
+    "start": "index.js",    
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": []
+}
