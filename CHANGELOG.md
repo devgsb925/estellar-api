@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0-alpha.0](https://github.com/devgsb925/estellar-api/compare/v1.1.0...v1.2.0-alpha.0) (2023-12-26)
+
+
+### Features
+
+* add api pipelines ([e81257b](https://github.com/devgsb925/estellar-api/commit/e81257b4880cd4cf152a771f04ad8c59e1476c7b))
+* add global errorhandler, joi validation, postgres driver, test api. partial implementation. ([f009f31](https://github.com/devgsb925/estellar-api/commit/f009f3127a3e17590506579c5794885ff631ce72))
+* add logger support! morgan winston ([c728abd](https://github.com/devgsb925/estellar-api/commit/c728abdc01a4f3ddf33ff4200fa2aa70c0e3b0b0))
+* add typescript nodemon support! ([baf0d1f](https://github.com/devgsb925/estellar-api/commit/baf0d1f700bdf3b26d58f8956537d12958cd2870))
+
 ## 1.1.0 (2023-12-26)
 
 
