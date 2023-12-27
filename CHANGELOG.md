@@ -1,6 +1,8 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+ESTELLAR GRADING BOOK
+
+All notable changes to this project will be documented in this file.
 
 ## [1.2.0-alpha.0](https://github.com/devgsb925/estellar-api/compare/v1.1.0...v1.2.0-alpha.0) (2023-12-26)
 

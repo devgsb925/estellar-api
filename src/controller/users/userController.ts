@@ -1,7 +1,7 @@
-import getUsers from "./getUsers";
+import authenticate from "./authenticate";
 
 const UserController = {
-    GetUsers: getUsers,
+    Authenticate: authenticate,
 }
 
 export default UserController;

@@ -1,10 +1,10 @@
 import express from 'express';
-import getUserRoute from '../domain/users/router/getUsersRoute'
+import userRoutes from '../domain/users/router'
 
 const router = express.Router();
 
 export default (): express.Router => {
 
-    getUserRoute(router);
+    userRoutes(router);
     return router;
 }

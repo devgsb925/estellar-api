@@ -37,6 +37,5 @@ app.get("/logger", tryCatch((req: Request, res: Response) => {
 
 app.use(errorHandler);
 
-
 const server = http.createServer(app);
 server.listen(process.env.PORT, () => console.log(`app listening on port ${process.env.PORT}`));

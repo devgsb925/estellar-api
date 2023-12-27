@@ -1,7 +1,7 @@
-import getUsers from '../queries/users-queries';
+import authenticateQuery from './authenticateQuery';
 
 const Queries = {
-    GetUsers: getUsers
+    AuthenticateQuery: authenticateQuery
 }
 
 export default Queries;

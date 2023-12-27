@@ -1,0 +1,3 @@
+interface IAuthenticationResponse {
+    username: string;
+}

@@ -3,22 +3,6 @@ import Logger from "../lib/logger/logger";
 import type { NextFunction, Request } from 'express';
 import AppError from "../utility/AppError";
 
-// class ErrorHandler {
-//     public async handleError(error: Error, responseStream: Response): Promise<void> {
-//         if (error) {
-
-//             Logger.info('hello world!');
-//             Logger.info(error.stack);
-//         }
-
-//         // await logger.logError(error);
-//         // await fireMonitoringMetric(error);
-//         // await crashIfUntrustedErrorOrSendResponse(error, responseStream);
-//     };
-// }
-
-// export const handler = new ErrorHandler();
-
 const errorHandler = async (error: any, req: Request, res: Response, next: NextFunction) => {
 
     // joi validation errors
@@ -38,7 +22,7 @@ const errorHandler = async (error: any, req: Request, res: Response, next: NextF
         })
     }
 
-    // unexpected errors
+    // unexpected error
     return res.status(500).send(error.message);
 }
 
