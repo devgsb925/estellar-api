@@ -1,8 +1,14 @@
 # Changelog
 
-ESTELLAR GRADING BOOK
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-All notable changes to this project will be documented in this file.
+## [1.2.0-alpha.1](https://github.com/devgsb925/estellar-api/compare/v1.2.0-alpha.0...v1.2.0-alpha.1) (2023-12-27)
+
+
+### Features
+
+* add user partial! ([19b2b0f](https://github.com/devgsb925/estellar-api/commit/19b2b0f920f47d15844bd889cad9d8e301f7fbd2))
+* add user, authenticate user, and handle errors partial part 2! ([29b72c7](https://github.com/devgsb925/estellar-api/commit/29b72c75aab0eb2d6274450c1865a83de2339fe4))
 
 ## [1.2.0-alpha.0](https://github.com/devgsb925/estellar-api/compare/v1.1.0...v1.2.0-alpha.0) (2023-12-26)
 
