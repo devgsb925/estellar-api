@@ -46,7 +46,7 @@ const authenticateQuery = async (model: IAuthenticationRequest) => {
     const rolesList: { role: string, active: boolean }[] = [];
     userRoles.rows.forEach(f => rolesList.push({ role: f.role, active: f.active }));
 
-    return { roles: rolesList, routes: routes };
+    return { user_id: response.user_id, roles: rolesList, routes: routes };
 }
 
 export default authenticateQuery;

@@ -12,6 +12,7 @@ import compression from 'compression';
 import router from './router';
 import morganMiddleware from './config/morganMiddleware';
 import errorHandler from './middleware/errorHandler';
+
 const app = express();
 
 app.use(compression());

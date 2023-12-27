@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import jwt from 'jsonwebtoken';
 
 export const GenerateUUID = () => {
     return crypto.randomUUID().toString();
@@ -37,4 +38,8 @@ export const PasswordEquality = (password: string, realpassword: string, salt: s
 
     const hashCredential = PasswordHasher(salt, password);
     return (realpassword === hashCredential) ? true : false;
+}
+
+export const GenerateJwtAccessToken = (username: string) => {
+    return jwt.sign(username, process.env.JWT_SECRET, { expiresIn: '1800s' });
 }

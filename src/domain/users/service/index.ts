@@ -4,6 +4,7 @@ import getUserByCodeService from './getUserByCodeService';
 import getUserByIdService from './getUserByIdService';
 import addUserRoleService from './addUserRoleService';
 import getUserRoleByUserIdService from './getUserRoleByUserIdService';
+import getUsersService from './getUsersService';
 
 const UserService = {
     GetUserByUsername: getUserByUsernameService,
@@ -11,7 +12,8 @@ const UserService = {
     GetUserByCode: getUserByCodeService,
     GetUserById: getUserByIdService,
     AddUserRole: addUserRoleService,
-    GetUserRoleByUserId: getUserRoleByUserIdService
+    GetUserRoleByUserId: getUserRoleByUserIdService,
+    GetUsers: getUsersService
 }
 
 export default UserService;
