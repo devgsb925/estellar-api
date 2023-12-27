@@ -19,22 +19,22 @@ const authenticate = async (req: Request, response: Response) => {
 
     const accessToken = sign({
         id: res.user_id
-    }, process.env.JWT_ACCESS_SECRET, { expiresIn: 10 }) // 1440
+    }, process.env.JWT_ACCESS_SECRET, { expiresIn: 10 }) // 1 day 86400
 
 
     const refreshToken = sign({
         id: res.user_id
-    }, process.env.JWT_REFRESH_SECRET, { expiresIn: 20 }) //2160
+    }, process.env.JWT_REFRESH_SECRET, { expiresIn: 15 }) // 1.5 days 129600
 
 
     response.cookie("accessToken", accessToken, {
         httpOnly: true,
-        maxAge: 86400000
+        maxAge: 86400000 // 1 day 129600
     })
 
     response.cookie("refreshToken", refreshToken, {
         httpOnly: true,
-        maxAge: 129600000
+        maxAge: 129600000 // 1.5 days 129600
     })
 
     // update user session

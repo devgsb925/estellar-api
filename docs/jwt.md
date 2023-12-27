@@ -9,3 +9,4 @@ SETUP:
 
 - [x] generate access and refresh token
 - [x] validation middleware
+- [x] jwt validation

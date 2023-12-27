@@ -3,7 +3,7 @@ import type { NextFunction, Request, Response } from 'express';
 import { VerifyErrors, verify } from 'jsonwebtoken';
 import AppError from "../utility/AppError";
 import ErrorCodes from '../constants/error-codes';
-import UserService from '../domain/users/service'
+import Commands from '../domain/users/command';
 import Queries from '../domain/users/queries'
 
 const tokenValidation = (req: Request, res: Response, next: NextFunction) => {
@@ -44,11 +44,7 @@ const tokenValidation = (req: Request, res: Response, next: NextFunction) => {
       // on refresh token error delete session
       if (err !== null) {
 
-        UserService.DeleteUserSession(accessToken, refreshToken)
-          .catch((err) => {
-            throw new AppError(ErrorCodes.POST_DATA_ERROR.errorCode, ErrorCodes.POST_DATA_ERROR.description, ErrorCodes.POST_DATA_ERROR.statusCode);
-          });
-
+        Commands.DeleteUserSessionCommand(accessToken, refreshToken);
         throw new AppError(ErrorCodes.AUTHENTICATION_ERROR.errorCode, ErrorCodes.AUTHENTICATION_ERROR.description, ErrorCodes.AUTHENTICATION_ERROR.statusCode);
       } else {
 
