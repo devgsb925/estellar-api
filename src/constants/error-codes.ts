@@ -4,6 +4,8 @@ const ErrorCodes = {
     FAILED_POST_DATA_ERROR: { errorCode: 500, description: 'Internal Server Error.', statusCode: 500 },
     AUTHENTICATION_ERROR: { errorCode: 401, description: 'Unauthorized.', statusCode: 401 },
     ROUTE_UNAUTHORIZED_ERROR: { errorCode: 401, description: 'Unauthorized access prohibit.', statusCode: 401 },
+
+    NO_ROLE_FOUND: { errorCode: 401, description: 'No role(s) found.', statusCode: 401 },
 }
 
 export default ErrorCodes;

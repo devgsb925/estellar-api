@@ -3,7 +3,7 @@ import type { Request, Response } from 'express';
 
 import IUser from '../../domain/users/interface/user/i-user';
 import UserCommands from '../../domain/users/command';
-import { IAuthenticationResponse } from 'domain/users/queries/dto/i-authentication-response';
+import { IAddUserResponse } from 'domain/users/command/interface/i-add-user-response';
 
 
 const addUser = async (req: Request, response: Response) => {
@@ -34,9 +34,9 @@ const addUser = async (req: Request, response: Response) => {
         salt: ''
     };
 
-    var result: IAuthenticationResponse = await UserCommands.AddCommand(model);
+    var result: IAddUserResponse = await UserCommands.AddCommand(model);
 
-    return response.status(200).json({ username: model.username, password: result.password }).end();
+    return response.status(200).json(result).end();
 
 }
 
