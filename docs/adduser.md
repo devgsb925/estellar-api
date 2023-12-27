@@ -16,3 +16,11 @@ RULES:
 1. Can set initial role as Teacher, Parent, Student and Admin
 2. Generate CODE accordingly
 
+## TODO
+
+- [x] mock model
+- [x] validation schema
+- [x] CQRS
+    1. User Commands
+    2. User Queries
+- [x] error handler
