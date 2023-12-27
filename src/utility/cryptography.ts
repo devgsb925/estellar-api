@@ -1,5 +1,9 @@
 import crypto from 'crypto';
 
+export const GenerateUUID = () => {
+    return crypto.randomUUID().toString();
+};
+
 export const GenerateSalt = () => crypto.randomBytes(128).toString('base64');
 
 export const PasswordHasher = (salt: string, password: string) => {
@@ -11,7 +15,7 @@ export const RandomStringGenerator = (leftlength: number, rightlength: number) =
 
     let idBuilder: string = '';
 
-    const inChatOptions: string = 'abcdefghijklmnopqrstuvwxyz';
+    const inChatOptions: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const inNumberOptions: string = '0123456789';
 
     for (let i = 0; i < leftlength; i++) {

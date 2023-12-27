@@ -12,7 +12,6 @@ import compression from 'compression';
 import router from './router';
 import morganMiddleware from './config/morganMiddleware';
 import errorHandler from './middleware/errorHandler';
-import tryCatch from './utility/tryCatch';
 const app = express();
 
 app.use(compression());
@@ -25,15 +24,6 @@ app.use(cors({
 
 app.use(morganMiddleware);
 app.use('/', router());
-app.get("/logger", tryCatch((req: Request, res: Response) => {
-
-  const num = 1234;
-  if (num > 1234) {
-    throw new Error('over');
-  }
-  return res.status(200).json({ success: true });
-
-}));
 
 app.use(errorHandler);
 
