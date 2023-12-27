@@ -5,6 +5,9 @@ import getUserByIdService from './getUserByIdService';
 import addUserRoleService from './addUserRoleService';
 import getUserRoleByUserIdService from './getUserRoleByUserIdService';
 import getUsersService from './getUsersService';
+import updateUserSessionService from './updateUserSessionService';
+import deleteUserSessionService from './deleteUserSessionService';
+import validateUserSessionService from './validateUserSessionService';
 
 const UserService = {
     GetUserByUsername: getUserByUsernameService,
@@ -13,7 +16,10 @@ const UserService = {
     GetUserById: getUserByIdService,
     AddUserRole: addUserRoleService,
     GetUserRoleByUserId: getUserRoleByUserIdService,
-    GetUsers: getUsersService
+    GetUsers: getUsersService,
+    UpdateUserSession: updateUserSessionService,
+    DeleteUserSession: deleteUserSessionService,
+    ValidateUserSession: validateUserSessionService
 }
 
 export default UserService;

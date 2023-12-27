@@ -1,9 +1,10 @@
 import type { Request, Response } from 'express';
 import Queries from '../../domain/users/queries/index';
 import authenticationSchema from '../../domain/users/schema/authentication/authenticationSchema';
-import { IAuthenticationRequest } from 'domain/users/queries/dto/i-authentication-request';
+import { IAuthenticationRequest } from '../../domain/users/queries/dto/i-authentication-request';
 
 import { sign } from 'jsonwebtoken';
+import UserCommands from '../../domain/users/command';
 
 const authenticate = async (req: Request, response: Response) => {
 
@@ -18,12 +19,12 @@ const authenticate = async (req: Request, response: Response) => {
 
     const accessToken = sign({
         id: res.user_id
-    }, process.env.JWT_ACCESS_SECRET, { expiresIn: 1440 })
+    }, process.env.JWT_ACCESS_SECRET, { expiresIn: 10 }) // 1440
 
 
     const refreshToken = sign({
         id: res.user_id
-    }, process.env.JWT_REFRESH_SECRET, { expiresIn: 2160 })
+    }, process.env.JWT_REFRESH_SECRET, { expiresIn: 20 }) //2160
 
 
     response.cookie("accessToken", accessToken, {
@@ -35,6 +36,9 @@ const authenticate = async (req: Request, response: Response) => {
         httpOnly: true,
         maxAge: 129600000
     })
+
+    // update user session
+    await UserCommands.UpdateUserSessionCommand(accessToken, refreshToken, res.user_id);
 
     const jsonResponse = { roles: res.roles, routes: res.routes }
 
