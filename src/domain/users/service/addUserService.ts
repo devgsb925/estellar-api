@@ -1,10 +1,11 @@
-import IUser from "../interface/user/i-user";
+import IUser from '../interface/user/i-user';
 import { pool } from '../../../config/db-connection';
 
 const addUserService = (model: IUser) => {
-    const values = [model.user_id,
+  const values = [
+    model.user_id,
     model.date_created,
-        null,
+    null,
     model.code,
     model.avatar,
     model.first_name,
@@ -22,10 +23,13 @@ const addUserService = (model: IUser) => {
     model.relation,
     model.session_token,
     model.refresh_token,
-    model.salt];
+    model.salt,
+  ];
 
-    return pool.query('INSERT INTO public.users(user_id, date_created, last_update_date, code, avatar, first_name, middle_name, last_name, nick_name, dob, gender, email, primary_contact_no, secondary_contact_no, username, password_hash, access_status, relation, session_token, refresh_token, salt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)', values);
-
-}
+  return pool.query(
+    'INSERT INTO public.users(user_id, date_created, last_update_date, code, avatar, first_name, middle_name, last_name, nick_name, dob, gender, email, primary_contact_no, secondary_contact_no, username, password_hash, access_status, relation, session_token, refresh_token, salt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)',
+    values,
+  );
+};
 
 export default addUserService;

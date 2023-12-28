@@ -10,16 +10,16 @@ import deleteUserSessionService from './deleteUserSessionService';
 import validateUserSessionService from './validateUserSessionService';
 
 const UserService = {
-    GetUserByUsername: getUserByUsernameService,
-    AddUser: addUserService,
-    GetUserByCode: getUserByCodeService,
-    GetUserById: getUserByIdService,
-    AddUserRole: addUserRoleService,
-    GetUserRoleByUserId: getUserRoleByUserIdService,
-    GetUsers: getUsersService,
-    UpdateUserSession: updateUserSessionService,
-    DeleteUserSession: deleteUserSessionService,
-    ValidateUserSession: validateUserSessionService
-}
+  GetUserByUsername: getUserByUsernameService,
+  AddUser: addUserService,
+  GetUserByCode: getUserByCodeService,
+  GetUserById: getUserByIdService,
+  AddUserRole: addUserRoleService,
+  GetUserRoleByUserId: getUserRoleByUserIdService,
+  GetUsers: getUsersService,
+  UpdateUserSession: updateUserSessionService,
+  DeleteUserSession: deleteUserSessionService,
+  ValidateUserSession: validateUserSessionService,
+};
 
 export default UserService;

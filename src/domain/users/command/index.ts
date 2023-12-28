@@ -3,9 +3,9 @@ import updateUserSessionCommand from './updateUserSessionCommand';
 import deleteUserSessionCommand from './deleteUserSessionCommand';
 
 const UserCommands = {
-    AddCommand: addCommand,
-    UpdateUserSessionCommand: updateUserSessionCommand,
-    DeleteUserSessionCommand: deleteUserSessionCommand
-}
+  AddCommand: addCommand,
+  UpdateUserSessionCommand: updateUserSessionCommand,
+  DeleteUserSessionCommand: deleteUserSessionCommand,
+};
 
 export default UserCommands;

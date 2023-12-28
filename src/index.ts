@@ -1,4 +1,4 @@
-import express, { NextFunction, Request, Response } from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -19,9 +19,11 @@ app.use(compression());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({
-  credentials: true
-}));
+app.use(
+  cors({
+    credentials: true,
+  }),
+);
 
 app.use(morganMiddleware);
 app.use('/', router());

@@ -1,4 +1,4 @@
 export interface IAuthenticationResponse {
-    routes: string[];
-    token: string;
+  routes: string[];
+  token: string;
 }

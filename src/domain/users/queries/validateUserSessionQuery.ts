@@ -4,14 +4,17 @@ import IUser from '../interface/user/i-user';
 import UserService from '../service';
 
 const validateUserSessionQuery = async (userid: string, sessionToken: string, refreshToken: string) => {
+  const response: IUser = (await UserService.ValidateUserSession(userid, sessionToken, refreshToken)).rows[0];
 
-    var response: IUser = (await UserService.ValidateUserSession(userid, sessionToken, refreshToken)).rows[0];
+  if (!response) {
+    throw new AppError(
+      ErrorCodes.AUTHENTICATION_ERROR.errorCode,
+      ErrorCodes.AUTHENTICATION_ERROR.description,
+      ErrorCodes.AUTHENTICATION_ERROR.statusCode,
+    );
+  }
 
-    if (response.session_token !== sessionToken || response.refresh_token !== refreshToken) {
-        throw new AppError(ErrorCodes.AUTHENTICATION_ERROR.errorCode, ErrorCodes.AUTHENTICATION_ERROR.description, ErrorCodes.AUTHENTICATION_ERROR.statusCode);
-    }
-
-    return 1;
-}
+  return 1;
+};
 
 export default validateUserSessionQuery;
