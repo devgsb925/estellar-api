@@ -5,6 +5,7 @@ import { IAuthenticationRequest } from '../../domain/users/queries/dto/i-authent
 
 import { sign } from 'jsonwebtoken';
 import UserCommands from '../../domain/users/command';
+// import AppError from '../../utility/AppError';
 
 const authenticate = async (req: Request, response: Response) => {
   const model = modelMapper(req.body['username'], req.body['password']);
@@ -16,7 +17,6 @@ const authenticate = async (req: Request, response: Response) => {
 
   // business error from domain
   const res = await Queries.AuthenticateQuery(model);
-
   const accessToken = sign(
     {
       id: res.user_id,
@@ -40,7 +40,7 @@ const authenticate = async (req: Request, response: Response) => {
   // update user session
   await UserCommands.UpdateUserSessionCommand(accessToken, refreshToken, res.user_id);
 
-  const jsonResponse = { roles: res.roles, routes: res.routes };
+  const jsonResponse = { token: accessToken + ';' + refreshToken, roles: res.roles, routes: res.routes };
 
   // return response
   return response.status(200).json(jsonResponse).end();

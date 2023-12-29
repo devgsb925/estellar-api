@@ -41,11 +41,11 @@ const authenticateQuery = async (model: IAuthenticationRequest) => {
   }
 
   // set routes response array, removed role_id
-  let routes: string[] = [];
+  let routes: { role: string; route: string }[] = [];
   for (let index = 0; index < userRoles.rows.length; index++) {
     const role = userRoles.rows[index];
 
-    const rolesByRoleIdList: string[] = (await PageRouteService.GetPageRoutesByRoleId(role.role_id)).rows;
+    const rolesByRoleIdList: { role: string; route: string }[] = (await PageRouteService.GetPageRoutesByRoleId(role.role_id)).rows;
     routes = [...routes, ...rolesByRoleIdList];
   }
 

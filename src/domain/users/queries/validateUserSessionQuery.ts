@@ -1,12 +1,12 @@
 import AppError from '../../../utility/AppError';
 import ErrorCodes from '../../../constants/error-codes';
-import IUser from '../interface/user/i-user';
+
 import UserService from '../service';
 
 const validateUserSessionQuery = async (userid: string, sessionToken: string, refreshToken: string) => {
-  const response: IUser = (await UserService.ValidateUserSession(userid, sessionToken, refreshToken)).rows[0];
+  const response: number = (await UserService.ValidateUserSession(userid, sessionToken, refreshToken)).rowCount;
 
-  if (!response) {
+  if (response === 0) {
     throw new AppError(
       ErrorCodes.AUTHENTICATION_ERROR.errorCode,
       ErrorCodes.AUTHENTICATION_ERROR.description,
@@ -14,7 +14,7 @@ const validateUserSessionQuery = async (userid: string, sessionToken: string, re
     );
   }
 
-  return 1;
+  return response;
 };
 
 export default validateUserSessionQuery;
