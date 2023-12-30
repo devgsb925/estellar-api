@@ -5,7 +5,6 @@ import { IAuthenticationRequest } from '../../domain/users/queries/dto/i-authent
 
 import { sign } from 'jsonwebtoken';
 import UserCommands from '../../domain/users/command';
-// import AppError from '../../utility/AppError';
 
 const authenticate = async (req: Request, response: Response) => {
   const model = modelMapper(req.body['username'], req.body['password']);
