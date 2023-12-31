@@ -8,5 +8,6 @@ import addUserSchemaValidator from '../../../schemaValidators/addUserSchemaValid
 export default (router: Router) => {
   router.post(`/api/${process.env.API_VERSION}/authenticate`, tryCatch(UserController.Authenticate));
   router.get(`/api/${process.env.API_VERSION}/users`, accessTokenValidation, tryCatch(UserController.GetUsers));
+  router.get(`/api/${process.env.API_VERSION}/users/profile`, accessTokenValidation, tryCatch(UserController.GetUserProfile));
   router.post(`/api/${process.env.API_VERSION}/users/add`, addUserSchemaValidator, tryCatch(UserController.AddUser));
 };
