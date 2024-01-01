@@ -1,9 +1,12 @@
-import type { Request, Response } from 'express';
+import type { Response } from 'express';
 import Queries from '../../domain/users/queries/index';
 
-const getUserProfile = async (req: Request, response: Response) => {
+const getUserProfile = async (req: any, response: Response) => {
   // business error from domain
-  const res = await Queries.GetUserProfileQuery('6451f456-b8d1-4c31-9929-264db2411150');
+  if (!req.data) {
+    return response.status(401).send({ message: 'Unauthorized! 77' }).end();
+  }
+  const res = await Queries.GetUserProfileQuery(req.data.uid);
 
   // return response
   return response.status(200).json(res).end();

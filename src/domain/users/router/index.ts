@@ -10,4 +10,5 @@ export default (router: Router) => {
   router.get(`/api/${process.env.API_VERSION}/users`, accessTokenValidation, tryCatch(UserController.GetUsers));
   router.get(`/api/${process.env.API_VERSION}/users/profile`, accessTokenValidation, tryCatch(UserController.GetUserProfile));
   router.post(`/api/${process.env.API_VERSION}/users/add`, addUserSchemaValidator, tryCatch(UserController.AddUser));
+  router.post(`/api/${process.env.API_VERSION}/signout`, accessTokenValidation, tryCatch(UserController.SignOut));
 };
