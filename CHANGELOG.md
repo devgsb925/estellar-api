@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/devgsb925/estellar-api/compare/v1.2.0-alpha.1...v1.2.0) (2024-01-01)
+
+
+### Features
+
+* add jwt authentication support completed! ([11e419d](https://github.com/devgsb925/estellar-api/commit/11e419d1a90d6b3f6ba7609d548c549b41396079))
+* add jwt support! ([9cf0e4d](https://github.com/devgsb925/estellar-api/commit/9cf0e4d87b25de16f229f62ad7815b86b24c48ad))
+* add user profile partial! ([9cf1971](https://github.com/devgsb925/estellar-api/commit/9cf1971adc1976d9d81f47108013357a5ab048b5))
+* eslint/prettier support! ([fa13a84](https://github.com/devgsb925/estellar-api/commit/fa13a84408687ab49889fc4495772e1ea6b4a81c))
+
+
+### Bug Fixes
+
+* delete user session, cqrs ([18c5b29](https://github.com/devgsb925/estellar-api/commit/18c5b29e014a00a831e4f3cc1bc3ff86892091be))
+* token validation errors! ([4442db0](https://github.com/devgsb925/estellar-api/commit/4442db05761d5d728ae794730a468e7bb760f8cf))
+* validation token bug! ([79ad1c0](https://github.com/devgsb925/estellar-api/commit/79ad1c0ed8610f61738fde760a1d47c14a7c67fb))
+
 ## [1.2.0-alpha.1](https://github.com/devgsb925/estellar-api/compare/v1.2.0-alpha.0...v1.2.0-alpha.1) (2023-12-27)
 
 
