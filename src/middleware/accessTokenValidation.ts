@@ -29,7 +29,7 @@ const accessTokenValidation = async (req: Request, res: Response, next: NextFunc
     const tokens = btoken.split(';');
 
     if (!bearer) {
-      return res.status(401).send({ message: 'Unauthorized! A' }).end();
+      return res.status(401).send({ message: 'Unauthorized!' }).end();
     }
 
     jwt.verify(tokens[0], process.env.JWT_ACCESS_SECRET, async (err, decoded: any) => {
@@ -41,14 +41,14 @@ const accessTokenValidation = async (req: Request, res: Response, next: NextFunc
       console.log(validateUser);
 
       if (validateUser === 0) {
-        return res.status(401).send({ message: 'Unauthorized! B' }).end();
+        return res.status(401).send({ message: 'Unauthorized!' }).end();
       }
 
       req.data = { uid: decoded.id, sessionToken: tokens[0], refreshToken: tokens[1] };
       next();
     });
   } catch (error) {
-    return res.status(401).send({ message: 'Unauthorized! C' }).end();
+    return res.status(401).send({ message: 'Unauthorized!' }).end();
   }
 };
 

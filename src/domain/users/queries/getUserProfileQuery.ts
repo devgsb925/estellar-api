@@ -5,7 +5,7 @@ import UserService from '../service';
 
 const getUserProfileQuery = async (userid: string) => {
   // 1. check user exists
-  const response: IUserProfile[] = (await UserService.GetUserProfile(userid)).rows;
+  const response: IUserProfile = (await UserService.GetUserProfile(userid)).rows[0];
 
   // user exists error
   if (!response) {
