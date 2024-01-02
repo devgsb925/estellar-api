@@ -1,11 +1,11 @@
 import AppError from '../../../utility/AppError';
 import ErrorCodes from '../../../constants/error-codes';
-import IUserProfile from '../interface/user/i-user-profile';
+import IUserProfileResponse from './interface/i-user-profile-response';
 import UserService from '../service';
 
 const getUserProfileQuery = async (userid: string) => {
   // 1. check user exists
-  const response: IUserProfile = (await UserService.GetUserProfile(userid)).rows[0];
+  const response: IUserProfileResponse = (await UserService.GetUserProfile(userid)).rows[0];
 
   // user exists error
   if (!response) {

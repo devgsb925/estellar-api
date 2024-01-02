@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
 import Queries from '../../domain/users/queries/index';
 import authenticationSchema from '../../domain/users/schema/authentication/authenticationSchema';
-import { IAuthenticationRequest } from '../../domain/users/queries/dto/i-authentication-request';
+import { IAuthenticationRequest } from '../../domain/users/queries/interface/i-authentication-request';
 
 import { sign } from 'jsonwebtoken';
 import UserCommands from '../../domain/users/command';

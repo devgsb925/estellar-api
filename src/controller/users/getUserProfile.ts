@@ -4,7 +4,7 @@ import Queries from '../../domain/users/queries/index';
 const getUserProfile = async (req: any, response: Response) => {
   // business error from domain
   if (!req.data) {
-    return response.status(401).send({ message: 'Unauthorized! 77' }).end();
+    return response.status(401).send({ message: 'Unauthorized!' }).end();
   }
   const res = await Queries.GetUserProfileQuery(req.data.uid);
 

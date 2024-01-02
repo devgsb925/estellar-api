@@ -9,6 +9,7 @@ import updateUserSessionService from './updateUserSessionService';
 import deleteUserSessionService from './deleteUserSessionService';
 import validateUserSessionService from './validateUserSessionService';
 import getUserProfileService from './getUserProfileService';
+import updateUserProfileService from './updateUserProfileService';
 
 const UserService = {
   GetUserByUsername: getUserByUsernameService,
@@ -22,6 +23,7 @@ const UserService = {
   DeleteUserSession: deleteUserSessionService,
   ValidateUserSession: validateUserSessionService,
   GetUserProfile: getUserProfileService,
+  UpdateUserProfile: updateUserProfileService,
 };
 
 export default UserService;

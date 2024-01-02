@@ -7,7 +7,7 @@ import Commands from '../domain/users/command';
 declare module 'express-serve-static-core' {
   // eslint-disable-next-line no-unused-vars
   interface Request {
-    data?: { uid: string; sessionToken: string; refreshToken: string };
+    data?: { uid: string; sessionToken: string; refreshToken: string; fileName: string };
   }
 }
 
@@ -44,7 +44,7 @@ const accessTokenValidation = async (req: Request, res: Response, next: NextFunc
         return res.status(401).send({ message: 'Unauthorized!' }).end();
       }
 
-      req.data = { uid: decoded.id, sessionToken: tokens[0], refreshToken: tokens[1] };
+      req.data = { uid: decoded.id, sessionToken: tokens[0], refreshToken: tokens[1], fileName: '' };
       next();
     });
   } catch (error) {

@@ -1,15 +1,24 @@
 import { Response } from 'express-serve-static-core';
 import Logger from '../lib/logger/logger';
-import type { Request } from 'express';
+import type { NextFunction, Request } from 'express';
 import AppError from '../utility/AppError';
+import multer from 'multer';
 
-const errorHandler = async (error: any, req: Request, res: Response) => {
+const errorHandler = async (error: any, req: Request, res: Response, next: NextFunction) => {
   // joi validation errors
   if (error.name === 'ValidationError') {
     Logger.info(error.details);
     return res.status(400).send({
       type: 'ValidationError',
       details: error.details,
+    });
+  }
+
+  if (error instanceof multer.MulterError) {
+    Logger.info(error.message);
+    return res.status(500).send({
+      type: 'UploadError',
+      details: error.message,
     });
   }
 
@@ -20,8 +29,15 @@ const errorHandler = async (error: any, req: Request, res: Response) => {
     });
   }
 
+  if (error) {
+    return res.status(500).send({
+      type: 'Error',
+      details: error.message,
+    });
+  }
+
   // unexpected error
-  return res.status(500).send(error.message);
+  return next();
 };
 
 export default errorHandler;

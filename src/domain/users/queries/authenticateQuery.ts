@@ -1,6 +1,6 @@
 import AppError from '../../../utility/AppError';
 import ErrorCodes from '../../../constants/error-codes';
-import { IAuthenticationRequest } from './dto/i-authentication-request';
+import { IAuthenticationRequest } from './interface/i-authentication-request';
 import IUser from '../interface/user/i-user';
 import UserService from '../service';
 import PageRouteService from '../../pageRoutes/service';
