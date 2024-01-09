@@ -16,10 +16,10 @@ const { TokenExpiredError } = jwt;
 const catchError = (err: any, res: Response, at: string, rt: string) => {
   if (err instanceof TokenExpiredError) {
     Commands.DeleteUserSessionCommand(at, rt);
-    return res.status(401).send({ message: 'Unauthorized!' }).end();
+    return res.status(401).send({ message: 'Unauthorized! 1' }).end();
   }
 
-  return res.sendStatus(401).send({ message: 'Unauthorized!' }).end();
+  return res.sendStatus(401).send({ message: 'Unauthorized! 2' }).end();
 };
 
 const accessTokenValidation = async (req: Request, res: Response, next: NextFunction) => {
@@ -29,7 +29,7 @@ const accessTokenValidation = async (req: Request, res: Response, next: NextFunc
     const tokens = btoken.split(';');
 
     if (!bearer) {
-      return res.status(401).send({ message: 'Unauthorized!' }).end();
+      return res.status(401).send({ message: 'Unauthorized! 3' }).end();
     }
 
     jwt.verify(tokens[0], process.env.JWT_ACCESS_SECRET, async (err, decoded: any) => {
@@ -41,14 +41,14 @@ const accessTokenValidation = async (req: Request, res: Response, next: NextFunc
       console.log(validateUser);
 
       if (validateUser === 0) {
-        return res.status(401).send({ message: 'Unauthorized!' }).end();
+        return res.status(401).send({ message: 'Unauthorized! 4' }).end();
       }
 
       req.data = { uid: decoded.id, sessionToken: tokens[0], refreshToken: tokens[1], fileName: '' };
       next();
     });
   } catch (error) {
-    return res.status(401).send({ message: 'Unauthorized!' }).end();
+    return res.status(401).send({ message: 'Unauthorized!5 ' }).end();
   }
 };
 
