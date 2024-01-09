@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
-import addUserSchema from '../domain/users/schema/user/addUserSchema';
-import IAddUserRequest from 'domain/users/command/interface/i-add-user-request';
+import addUserSchema from './addUserSchema';
+import IAddUserRequest from '../../command/interface/i-add-user-request';
 
 const addUserSchemaValidator = (req: Request, _res: Response, next: NextFunction) => {
   const { error } = addUserSchema.validate(modelMapper(req.body));

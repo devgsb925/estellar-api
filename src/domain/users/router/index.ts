@@ -3,7 +3,7 @@ import type { Router } from 'express';
 import UserController from '../../../controller/users/userController';
 import tryCatch from '../../../utility/tryCatch';
 import accessTokenValidation from '../../../middleware/accessTokenValidation';
-import addUserSchemaValidator from '../../../schemaValidators/addUserSchemaValidator';
+import addUserSchemaValidator from '../schema/user/addUserSchemaValidator';
 import upload from '../../../config/multer-config';
 
 export default (router: Router) => {
