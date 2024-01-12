@@ -1,9 +1,9 @@
 import addStaffUserService from './addStaffUserService';
-import getStaffProfileService from './getStaffProfileService';
+import getStaffUserService from './getStaffUserService';
 
 const StaffUserService = {
   AddStaffUserService: addStaffUserService,
-  GetStaffProfileService: getStaffProfileService,
+  GetStaffUserService: getStaffUserService,
 };
 
 export default StaffUserService;

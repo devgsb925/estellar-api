@@ -1,4 +1,4 @@
-import getStaffProfileQuery from './getStaffProfileQuery';
+import getStaffProfileQuery from './getStaffUsersQuery';
 
 const Queries = {
   GetStaffProfileQuery: getStaffProfileQuery,

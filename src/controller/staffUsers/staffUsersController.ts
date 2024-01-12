@@ -1,8 +1,10 @@
 import addStaffUser from './addStaffUser';
-import getStaffProfile from './getStaffProfile';
+import getStaffUsers from './getStaffUsers';
+import getStaffUsersByFname from './getStaffUsersByFname';
 
 const staffUsersController = {
-  GetStaffProfile: getStaffProfile,
+  GetStaffUsers: getStaffUsers,
+  GetStaffUsersByFname: getStaffUsersByFname,
   AddStaffUser: addStaffUser,
 };
 
