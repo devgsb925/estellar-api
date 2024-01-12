@@ -38,7 +38,6 @@ const accessTokenValidation = async (req: Request, res: Response, next: NextFunc
       }
 
       const validateUser = await Queries.ValidateUserSessionQuery(decoded.id, tokens[0], tokens[1]);
-      console.log(validateUser);
 
       if (validateUser === 0) {
         return res.status(401).send({ message: 'Unauthorized! 4' }).end();

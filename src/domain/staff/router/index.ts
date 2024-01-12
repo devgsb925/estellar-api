@@ -6,4 +6,5 @@ import staffUsersController from '../../../controller/staffUsers/staffUsersContr
 
 export default (router: Router) => {
   router.get(`/api/${process.env.API_VERSION}/staff`, accessTokenValidation, tryCatch(staffUsersController.GetStaffProfile));
+  router.post(`/api/${process.env.API_VERSION}/staff`, accessTokenValidation, tryCatch(staffUsersController.AddStaffUser));
 };
